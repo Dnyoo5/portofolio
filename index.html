@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        :root {
+            --primary: #6EC3F7;
+            --dark-green: #1E293B;
+        }
+
+        .desaturate {
+            filter: saturate(0%);
+        }
+
+        .dark .skill-card {
+            background: #1E293B;
+        }
+
+        [role="tab"] {
+            transition: all 0.3s ease;
+        }
+
+        .tab-panel {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6EC3F7',
+                        'dark-green': '#4C585B',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-poppins bg-white dark:bg-gray-900">
+    <!-- Navbar -->
+    <header
+        class="fixed w-full bg-white/90 dark:bg-gray-900 dark:backdrop-blur-sm dark:shadow-sm dark:z-10 backdrop-blur-sm shadow-sm z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary dark:text-white">Portofolio</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#projects"
+                    class="hover:text-primary dark:text-white dark:hover:text-primary transition">Projects</a>
+                <a href="#skills"
+                    class="hover:text-primary dark:text-white dark:hover:text-primary transition">Skills</a>
+                <a href="#about"
+                    class="hover:text-primary dark:text-white  dark:hover:text-primary transition">About</a>
+                <a href="#certificates"
+                    class="hover:text-primary dark:text-white  dark:hover:text-primary transition">Sertifikat</a>
+                <button id="theme-toggle" class="p-2 hover:bg-primary/10 rounded-lg">
+                    <i class="fas fa-moon text-primary dark:text-white"></i>
+                </button>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 text-primary dark:text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-2">
+            <nav class="flex flex-col items-center space-y-4 py-4">
+                <a href="#projects" class="hover:text-primary dark:text-white transition">Projects</a>
+                <a href="#skills" class="hover:text-primary dark:text-white transition">Skills</a>
+                <a href="#about" class="hover:text-primary dark:text-white transition">About</a>
+                <button id="theme-toggle-mobile" class="p-2 hover:bg-primary/10 rounded-lg">
+                    <i class="fas fa-moon text-primary dark:text-white"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-[90vh] flex items-center pt-20 pb-16">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 space-y-6">
+                <h1 class="text-4xl lg:text-5xl font-bold dark:text-white leading-relaxed">
+                    <span id="typed-text" class="text-primary whitespace-pre-line"></span>
+                </h1>
+
+
+
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    Web Developer
+                </p>
+               
+            </div>
+            <div class="lg:w-1/2 relative">
+                <div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full animate-pulse"></div>
+                <img src="riva.png" alt="Profile" class="desaturate w-full max-w-md rounded-lg shadow-xl  ">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 dark:text-white">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <a href="project-detail.html" class="group">
+                    <div
+                        class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
+                        <!-- Image Section -->
+                        <div class="h-60 bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                            <img src="foto-porto/pelapor-2.png" alt="Tampilan SI-PELAPORAN"
+                                class="w-full h-full object-cover transform transition duration-300 group-hover:scale-105"
+                                loading="lazy">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:opacity-0 transition-opacity"></div>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fab fa-laravel text-2xl text-primary"></i>
+                                <h3 class="text-xl font-bold dark:text-white">SI-PELAPORAN</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">Sistem Laporan/Aduan Mahasiswa Terkait Pelecehan
+                                atau nilai Akademik</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AJAX</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">jQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-detail-2.html" class="group">
+                    <div
+                        class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
+                        <!-- Image Section -->
+                        <div class="h-60 bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                            <img src="foto-porto/sapras-2.png" alt="Tampilan SI-PELAPORAN"
+                                class="w-full h-full object-cover transform transition duration-300 group-hover:scale-105"
+                                loading="lazy">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:opacity-0 transition-opacity"></div>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fab fa-laravel text-2xl text-primary"></i>
+                                <h3 class="text-xl font-bold dark:text-white">SIM Sapras</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">Sistem Manajemen Sarana Prasarana mengelola
+                                sarana dan prasarana sekolah</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AJAX</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">jQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-detail-3.html" class="group">
+                    <div
+                        class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
+
+                        <!-- Image Section -->
+                        <div class="h-60 bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                            <img src="foto-porto/maku-2.png" alt="Tampilan PT Maku.com"
+                                class="w-full h-full object-cover transform transition duration-300 group-hover:scale-105"
+                                loading="lazy">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:opacity-0 transition-opacity"></div>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fab fa-laravel text-2xl text-primary"></i>
+                                <h3 class="text-xl font-bold dark:text-white">PT Maku</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Sistem Pengelolaan Keuangan manajemen pembelian,
+                                penjualan.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AJAX</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">jQuery</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+
+                <a href="project-detail-4.html" class="group">
+                    <div
+                        class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
+
+                        <!-- Image Section -->
+                        <div class="h-60 bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                            <img src="foto-porto/legalisasi-1.png" alt="Tampilan Aplikasi Legalisasi Kemenlu"
+                                class="w-full h-full object-cover transform transition duration-300 group-hover:scale-105"
+                                loading="lazy">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:opacity-0 transition-opacity"></div>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fab fa-laravel text-2xl text-primary"></i>
+                                <h3 class="text-xl font-bold dark:text-white">Legalisasi Kemenlu</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Sistem pengelolaan permohonan legalisasi
+                                Kementerian Luar Negeri.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AJAX</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">jQuery</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a href="project-detail-5.html" class="group">
+                    <div
+                        class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
+
+                        <!-- Image Section -->
+                        <div class="h-60 bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                            <img src="foto-porto/senta-1.png" alt="Tampilan Majalah Senta"
+                                class="w-full h-full object-cover transform transition duration-300 group-hover:scale-105"
+                                loading="lazy">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:opacity-0 transition-opacity"></div>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fab fa-laravel text-2xl text-primary"></i>
+                                <h3 class="text-xl font-bold dark:text-white">Majalah Senta Kemnaker</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Platform digital interaktif untuk publikasi Majalah Senta oleh
+                                Kemnaker
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AJAX</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">jQuery</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Skills & Tools</h2>
+
+            <!-- Tab Navigation -->
+            <div class="flex justify-center mb-8 border-b dark:border-gray-700">
+                <div class="flex space-x-4" role="tablist">
+                    <button class="pb-2 px-4 text-primary border-b-2 border-primary font-medium transition" role="tab"
+                        data-tab="skills">
+                        Technical Skills
+                    </button>
+                    <button
+                        class="pb-2 px-4 text-gray-500 dark:text-gray-400 hover:text-primary border-b-2 border-transparent font-medium transition"
+                        role="tab" data-tab="tools">
+                        Development Tools
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Panels -->
+            <div>
+                <!-- Skills Panel -->
+                <div class="tab-panel active" role="tabpanel" data-content="skills">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- HTML -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-html5 text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">HTML5</span>
+                            </div>
+                        </div>
+
+                        <!-- CSS -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-css3-alt text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">CSS3</span>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-js-square text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <!-- jQuery -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-code text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">jQuery</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-sync-alt text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">AJAX</span>
+                            </div>
+                        </div>
+
+                        <!-- PHP -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-php text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">PHP</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-database text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">SQL</span>
+                            </div>
+                        </div>
+
+                        <!-- Laravel -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-laravel text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">Laravel</span>
+                            </div>
+                        </div>
+                        <!-- Tambahkan setelah item Figma -->
+
+                        <!-- Bootstrap -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-bootstrap text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">Bootstrap</span>
+                            </div>
+                        </div>
+
+                        <!-- Tailwind CSS -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-wind text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">Tailwind CSS</span>
+                            </div>
+                        </div>
+
+                        <!-- React -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-react text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">React</span>
+                            </div>
+                        </div>
+
+                        <!-- Figma -->
+
+
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-python text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Panel -->
+                <div class="tab-panel hidden" role="tabpanel" data-content="tools">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Git -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-git-alt text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">Git</span>
+                            </div>
+                        </div>
+
+                        <!-- npm -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-npm text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">npm</span>
+                            </div>
+                        </div>
+
+                        <!-- Composer -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-box text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">Composer</span>
+                            </div>
+                        </div>
+
+                        <!-- MySQL -->
+                        <div
+                            class="skill-card p-4 rounded-lg bg-white shadow-sm dark:bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-database text-2xl text-primary"></i>
+                                <span class="font-medium dark:text-white">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/3">
+                <img src="riva-2.png" alt="Profile" class="desaturate w-full rounded-lg shadow-xl ">
+            </div>
+            <div class="lg:w-2/3">
+                <h2 class="text-3xl font-bold mb-6 dark:text-white">About Me</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                    Saya merupakan spesialis dalam pengembangan aplikasi web berbasis Laravel dan Sistem Informasi
+                    Manajemen.
+                    Meskipun belum memiliki pengalaman kerja profesional, saya telah mengembangkan kompetensi melalui
+                    program magang
+                    dengan menangani proyek-proyek strategis untuk instansi pemerintah dan perusahaan swasta.
+
+                    Keunggulan utama saya terletak pada kemampuan adaptasi cepat terhadap teknologi baru dan komitmen
+                    untuk selalu
+                    mengutamakan fungsionalitas sistem tanpa mengesampingkan aspek user experience. Saya memegang
+                    prinsip bahwa
+                    solusi teknologi yang baik harus mampu menjawab kebutuhan nyata pengguna.
+
+                    Bersedia menerima proyek dari berbagai kalangan mulai dari perorangan, UMKM, hingga korporasi,
+                    dengan fokus
+                    menyediakan solusi sistem informasi terintegrasi yang meningkatkan efisiensi operasional bisnis
+                    klien.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="certificates" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Sertifikat</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <a href="http://ude.my/UC-5db1b7b4-0749-42f3-912a-fc992d2ebc9c" target="_blank"
+                    class="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition">
+                    <img src="sertifikat/sertifikat-1.jpg" alt="Sertifikat Laravel"
+                        class="object-cover w-full h-52 group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 space-y-2">
+                        <h3 class="text-base font-semibold text-gray-800 dark:text-white">HTML 5, CSS3, and JavaScript
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Diselesaikan: <span
+                                class="font-medium">April 2025</span></p>
+                        <span class="inline-block px-3 py-1 text-xs bg-primary/10 text-primary rounded-full">Online
+                            Course</span>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="https://www.dicoding.com/certificates/1RXY2M1JQXVM" target="_blank"
+                    class="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition">
+                    <img src="sertifikat/sertifikat-3.png" alt="Sertifikat Dicoding"
+                        class="object-cover w-full h-52 group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 space-y-2">
+                        <h3 class="text-base font-semibold text-gray-800 dark:text-white">Belajar Dasar Pemrograman Web
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Diselesaikan: <span class="font-medium">Sep
+                                2024</span></p>
+                        <span class="inline-block px-3 py-1 text-xs bg-primary/10 text-primary rounded-full">Online
+                            Course</span>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="https://ude.my/UC-fb4e1943-c9be-4543-8a1d-a2b0ec704f82" target="_blank"
+                    class="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition">
+                    <img src="sertifikat/sertifikat-2.png" alt="Sertifikat Flutter"
+                        class="object-cover w-full h-52 group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 space-y-2">
+                        <h3 class="text-base font-semibold text-gray-800 dark:text-white">Flutter Development Course
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Diselesaikan: <span class="font-medium">Apr
+                                2025</span></p>
+                        <span
+                            class="inline-block px-3 py-1 text-xs bg-yellow-100 text-yellow-600 rounded-full">Workshop</span>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="https://www.udemy.com/certificate/UC-c85ea63d-926e-4d4c-95c9-3d512ae4c64d/" target="_blank"
+                    class="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition">
+                    <img src="sertifikat/sertifikat-4.jpg" alt="Sertifikat Tailwind"
+                        class="object-cover w-full h-52 group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 space-y-2">
+                        <h3 class="text-base font-semibold text-gray-800 dark:text-white">Tailwind CSS Mastery</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Diselesaikan: <span class="font-medium">Apr
+                                2024</span></p>
+                        <span
+                            class="inline-block px-3 py-1 text-xs bg-blue-100 text-blue-600 rounded-full">Course</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Contact Column -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-semibold mb-4">Kontak Saya</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            Jl. Terusan Cibaduyut No. 148, Kec. Dayeuhkolot, Kab. Bandung
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a href="mailto:lifariva@gmail.com" class="hover:text-primary transition-colors">
+                                lifariva@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-primary"></i>
+                            +62895707982020
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-semibold mb-4">Navigasi Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-primary transition-colors">Beranda</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition-colors">Proyek</a></li>
+                        <li><a href="#skills" class="hover:text-primary transition-colors">Keahlian</a></li>
+                        <li><a href="#certificates" class="hover:text-primary transition-colors">Sertifikat</a></li>
+                        <li><a href="#about" class="hover:text-primary transition-colors">Tentang Saya</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-semibold mb-4">Sumber Daya</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="cv/CV- Riva Satya Prayoga.pdf" download
+                                class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <i class="fas fa-download text-primary"></i>
+                                Download CV
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/riva-satya-prayoga-3056252b1/"
+                                class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin text-primary"></i>
+                                Profil LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-semibold mb-4">Media Sosial</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/Dnyoo5"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/riva-satya-prayoga-3056252b1/"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/rivasatyaa10/"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-700 my-8"></div>
+
+            <!-- Bottom Section -->
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-center md:text-left">
+                    <p class="text-gray-400">
+                        © 2025 Riva Satya Prayoga. All rights reserved.
+                    </p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Syarat & Ketentuan</a>
+                    <a href="mailto:lifariva@gmail.com"
+                        class="text-gray-400 hover:text-primary transition-colors">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' :
+                'light');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+        });
+
+        document.querySelectorAll('[role="tab"]').forEach(tab => {
+            tab.addEventListener('click', function () {
+                const target = this.dataset.tab;
+
+                // Update Tab Styles
+                document.querySelectorAll('[role="tab"]').forEach(t => {
+                    t.classList.remove('text-primary', 'border-primary');
+                    t.classList.add('text-gray-500', 'dark:text-gray-400',
+                        'border-transparent');
+                });
+
+                this.classList.add('text-primary', 'border-primary');
+                this.classList.remove('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+
+                // Switch Panel Content
+                document.querySelectorAll('.tab-panel').forEach(panel => {
+                    panel.classList.add('hidden');
+                    if (panel.dataset.content === target) {
+                        panel.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Sync dark mode toggle
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        themeToggleMobile.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' :
+                'light');
+            themeToggleMobile.querySelector('i').classList.toggle('fa-moon');
+            themeToggleMobile.querySelector('i').classList.toggle('fa-sun');
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            new Typed('#typed-text', {
+                strings: ['Hai Everyone.\nHere Is Riva Satya.👋'],
+                typeSpeed: 60,
+                backSpeed: 0,
+                startDelay: 300,
+                showCursor: true,
+                cursorChar: '|',
+                loop: false
+            });
+        });
+    </script>
+</body>
+
+</html>

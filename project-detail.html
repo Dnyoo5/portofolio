@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Web Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6EC3F7;
+      --dark-green: #1E293B;
+    }
+
+    .desaturate {
+      filter: saturate(0%);
+    }
+
+    .dark .skill-card {
+      background: #1E293B;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.6s ease-out forwards;
+    }
+
+    /* Perbaikan typography */
+    .prose {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .prose h3 {
+      font-size: 1.5rem;
+      margin: 1.5em 0 1em;
+    }
+
+    .prose ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .prose li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .prose li::before {
+      content: "▹";
+      color: #6EC3F7;
+      position: absolute;
+      left: -1.5rem;
+    }
+
+    /* Hover effects untuk gambar */
+    .project-image {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-image:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image-mobile {
+      max-height: 400px;
+      /* Batasi tinggi maksimum */
+    }
+
+    @media (min-width: 768px) {
+      .project-image-mobile {
+        max-height: 500px;
+        /* Sesuaikan untuk desktop */
+      }
+    }
+
+    @keyframes scaleUp {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .animate-scaleUp {
+      animation: scaleUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Lightbox styling */
+    #lightbox {
+      transition: opacity 0.3s ease;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6EC3F7',
+            'dark-green': '#4C585B',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-poppins bg-white dark:bg-gray-900">
+  <!-- Header (Same as main page) -->
+  <header class="fixed w-full bg-white/90 dark:bg-gray-900 backdrop-blur-sm shadow-sm z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-primary dark:text-white">Portofolio</a>
+      <nav class="hidden md:flex space-x-8 items-center">
+
+        <button id="theme-toggle" class="p-2 hover:bg-primary/10 rounded-lg">
+          <i class="fas fa-moon text-primary dark:text-white"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 pb-12 animate-fade-in">
+    <div class="container mx-auto px-4">
+      <!-- Back Button dengan hover effect -->
+      <a href="index.html#projects" class="inline-block mb-8 group">
+        <div class="flex items-center text-primary hover:text-blue-600 transition-colors">
+          <i class="fas fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+          <span>Kembali ke Portofolio</span>
+        </div>
+      </a>
+
+      <!-- Project Content -->
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Image Gallery dengan hover -->
+        <div class="space-y-6">
+          <!-- Main Photo 16:9 -->
+          <!-- Contoh pada gambar utama (tambahkan class cursor-zoom-in) -->
+          <div class="rounded-xl overflow-hidden shadow-lg project-image hover:shadow-xl aspect-video">
+            <img src="foto-porto/pelapor-2.png" alt="Tampilan Depan"
+              class="w-full h-full object-cover transform transition duration-300 hover:scale-105 cursor-zoom-in">
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Dashboard 16:9 -->
+            <div class="rounded-lg shadow project-image aspect-video">
+              <img src="foto-porto/dashboard.png" alt="Dashboard" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Mobile View 9:16 -->
+            <div class="rounded-lg shadow project-image aspect-video">
+              <img src="foto-porto/pelapor1.png" alt="Dashboard" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Description -->
+        <div class="space-y-6">
+          <h1 class="text-3xl font-bold dark:text-white mb-6">SI-PELAPORAN</h1>
+
+          <div class="prose dark:prose-invert max-w-none">
+            <h3 class="text-primary !mt-0">Tentang Projek</h3>
+            <p class="!mt-2 dark:text-white">Sistem pelaporan kampus yang dirancang untuk memfasilitasi mahasiswa dan
+              civitas akademika dalam menyampaikan berbagai bentuk keluhan, khususnya yang berkaitan dengan isu akademik
+              dan pelecehan seksual. Sistem ini dibangun untuk menciptakan lingkungan kampus yang lebih aman,
+              transparan, dan responsif.</p>
+            <ul class="!mt-4">
+              <li class="dark:text-white">Pelaporan kasus akademik dan pelecehan seksual secara anonim atau terbuka</li>
+              <li class="dark:text-white">Pemantauan status laporan secara real-time</li>
+              <li class="dark:text-white">Notifikasi otomatis melalui Email</li>
+              <li class="dark:text-white">Panel admin untuk tindak lanjut dan dokumentasi kasus</li>
+            </ul>
+
+            <h3 class="text-primary !mt-8">Manfaat untuk Civitas Akademika:</h3>
+            <ul class="!mt-4 dark:text-white">
+              <li class="dark:text-white">Meningkatkan rasa aman dan kenyamanan di lingkungan kampus</li>
+              <li class="dark:text-white">Mempercepat respon dan tindak lanjut dari pihak berwenang</li>
+              <li class="dark:text-white">Memfasilitasi pelaporan tanpa harus hadir langsung</li>
+              <li class="dark:text-white">Mendorong budaya keterbukaan dan akuntabilitas</li>
+            </ul>
+
+            <h3 class="text-primary !mt-8">Teknologi Utama</h3>
+            <div class="flex flex-wrap gap-2 !mt-4">
+              <!-- Laravel -->
+              <div
+                class="flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">
+                <i class="fab fa-laravel text-lg"></i>
+                <span class="sr-only">Laravel</span>
+              </div>
+
+              <!-- JavaScript -->
+              <div
+                class="flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">
+                <i class="fab fa-js-square text-lg"></i>
+                <span class="sr-only">JavaScript</span>
+              </div>
+
+              <!-- SQL -->
+              <div
+                class="flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">
+                <i class="fas fa-database text-lg"></i>
+                <span class="sr-only">SQL</span>
+              </div>
+
+              <!-- Bootstrap -->
+              <div
+                class="flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">
+                <i class="fab fa-bootstrap text-lg"></i>
+                <span class="sr-only">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer (Same as main page) -->
+  <footer class="bg-primary/5 dark:bg-gray-900 py-12">
+    <!-- ... same footer content ... -->
+  </footer>
+
+
+  <div id="lightbox" class="hidden fixed inset-0 z-[999] bg-black/95 backdrop-blur-lg p-8 cursor-zoom-out">
+    <div class="relative w-full h-full flex items-center justify-center p-4">
+      <button id="close-lightbox"
+        class="absolute top-6 right-6 text-white text-4xl hover:text-primary transition-transform hover:scale-125 z-[1000]">
+        &times;
+      </button>
+
+      <div class="relative w-full h-full max-w-6xl mx-auto flex items-center justify-center">
+        <img id="lightbox-img" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl animate-scaleUp"
+          src="" alt="Lightbox">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' :
+        'light');
+      themeIcon.classList.toggle('fa-moon');
+      themeIcon.classList.toggle('fa-sun');
+    });
+
+
+    document.querySelectorAll('.project-image img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        lightboxImg.src = e.target.src;
+        lightbox.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      });
+    });
+
+    // Close lightbox
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Event listeners
+    document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+
+
+
+</body>
+
+</html>
